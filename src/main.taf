@@ -1,0 +1,2 @@
+<taf-app:container:ghcr.io/taffish/foldseek:10-r1>
+foldseek ::*ARGV*::
