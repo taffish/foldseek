@@ -3,9 +3,13 @@
 TAFFISH wrapper for [Foldseek](https://github.com/steineggerlab/foldseek), a fast protein structure search, clustering, and multimer comparison suite for PDB/mmCIF structure datasets.
 
 This repository packages upstream Foldseek release `10-941cd33` as the TAFFISH
-package version `10-r1`. The short TAFFISH version keeps package names stable
+package version `10-r2`. The short TAFFISH version keeps package names stable
 and readable, while the Dockerfile, upstream metadata, and smoke tests pin the
 exact upstream release tag and binary commit.
+
+Release `10-r2` is a help-only TAFFISH update. It keeps the upstream software,
+Dockerfile, runtime dependencies, smoke tests, and command behavior unchanged
+from `10-r1`, and refreshes the terminal `taf-foldseek --help` text.
 
 ## Installation
 
@@ -19,7 +23,7 @@ taf install foldseek
 Install the exact release:
 
 ```sh
-taf install foldseek 10-r1
+taf install foldseek 10-r2
 ```
 
 For local testing before the app is published to the public index:
@@ -134,9 +138,9 @@ Foldseek modules and options are available as upstream implements them. Use
 ```text
 name: foldseek
 command: taf-foldseek
-version: 10-r1
+version: 10-r2
 kind: tool
-image: ghcr.io/taffish/foldseek:10-r1
+image: ghcr.io/taffish/foldseek:10-r2
 upstream release: 10-941cd33
 upstream binary commit: 941cd33ff0771cd2e3f144e3293e22a2b87e9fda
 ```
@@ -235,11 +239,11 @@ Useful checks before publishing:
 taf check
 taf compile -- foldseek version
 taf publish --release --dry-run
-docker build -t ghcr.io/taffish/foldseek:10-r1 -f docker/Dockerfile .
-docker build --platform linux/amd64 -t ghcr.io/taffish/foldseek:10-r1-amd64-test -f docker/Dockerfile .
-docker build --platform linux/arm64 -t ghcr.io/taffish/foldseek:10-r1-arm64-test -f docker/Dockerfile .
-docker run --rm ghcr.io/taffish/foldseek:10-r1 foldseek version
-docker run --rm ghcr.io/taffish/foldseek:10-r1 foldseek easy-search
+docker build -t ghcr.io/taffish/foldseek:10-r2 -f docker/Dockerfile .
+docker build --platform linux/amd64 -t ghcr.io/taffish/foldseek:10-r2-amd64-test -f docker/Dockerfile .
+docker build --platform linux/arm64 -t ghcr.io/taffish/foldseek:10-r2-arm64-test -f docker/Dockerfile .
+docker run --rm ghcr.io/taffish/foldseek:10-r2 foldseek version
+docker run --rm ghcr.io/taffish/foldseek:10-r2 foldseek easy-search
 ```
 
 The repository wrapper files are licensed under Apache-2.0. Upstream Foldseek
